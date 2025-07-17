@@ -13,7 +13,7 @@ It's designed for quickly testing equations, formatting, or small pieces of LaTe
 - **Direct PDF Rendering:** Uses the high-quality PyMuPDF library to render the PDF directly to an image in memory, with no intermediate files.
 - **Copy Functionality:** Right-click the preview window to copy the underlying, extracted text to your clipboard.
 - **Minimal Dependencies:** Relies only on your existing TeX distribution and a few Python packages.
-- **Automatic Cleanup:** Automatically creates and deletes temporary build files (`.log`, `.aux`, etc.) in a `latex_temp` sub-directory.
+- **Automatic Cleanup:** Automatically creates and deletes temporary build files (`.log`, `.aux`, etc.) in a `latex_temp` subdirectory.
 
 -----
 
@@ -54,22 +54,21 @@ Your terminal prompt should now show `(latex_cli)` at the beginning, indicating 
 
 ## Creating the Launcher (Windows)
 
-To run the script easily from any terminal with a simple command like `latex-cli`, you should create a batch script launcher. This also ensures the script is executed correctly using the Python interpreter from your `conda` environment.
+To run the script easily from any terminal with a simple command like `latex-cli`, you should create a PowerShell script launcher. This also ensures the script is executed correctly using the Python interpreter from your `conda` environment.
 
-### 1\. Create the Batch Script (`latex-cli.bat`)
+### 1\. Create the PowerShell Script (`latex-cli.ps1`)
 
-A batch script is a plain text file that contains a sequence of commands.
+A PowerShell script is a plain text file that contains a sequence of commands.
 
 1. **Create a dedicated folder for your scripts.** A good practice is to create a folder like `C:\Scripts`.
-2. **Find your Python interpreter's full path.** With your `conda` environment active, run the command `where python`. It will show you the path. Copy the one that points inside your `latex_cli` conda environment folder.
-3. **Create a new text file** inside `C:\Scripts` and name it `latex-cli.bat`.
-4. **Edit `latex-cli.bat`** and add the following lines, **replacing the paths** with the full paths to your Python interpreter and your `latex_cli.py` script.
+2. **Find your Python interpreter's full path.** With your `conda` environment active, run the command `where python`. It will show you the path. Copy the one that points inside your `latex_cli` Conda environment folder.
+3. **Create a new text file** inside `C:\Scripts` and name it `latex-cli.ps1`.
+4. **Edit `latex-cli.ps1`** and add the following lines, **replacing the paths** with the full paths to your Python interpreter and your `latex_cli.py` script.
 
 **Example:**
 
 ```shell
-@echo off
-"C:\Users\YourUser\miniconda3\envs\latex_cli\python.exe" "C:\Path\To\Your\Project\latex_cli.py" %*
+& "C:/Users/marti/miniconda3/envs/latex_cli/python.exe" "C:/Users/marti/repositories/latex-cli/latex_cli.py" @Args
 ```
 
 ### 2\. Add Your Scripts Folder to the System PATH
@@ -80,7 +79,7 @@ This final step makes your `latex-cli` command globally accessible from any term
 2. Select **"Edit the system environment variables"**.
 3. In the System Properties window, click the **"Environment Variables…"** button.
 4. In the top section ("User variables"), find and select the **`Path`** variable, then click **"Edit…"**.
-5. Click **"New"** and add the path to the folder where you saved `latex-cli.bat` (e.g., `C:\Scripts`).
+5. Click **"New"** and add the path to the folder where you saved `latex-cli.ps1` (e.g., `C:\Scripts`).
 6. Click **"OK"** on all windows to save.
 
 -----
